@@ -23,7 +23,7 @@ services:
 
   adquirencia:
     container_name: adquirencia
-    image: epayco:php-7.4
+    image: epayco:php-8.1
     ports:
       - "8002:80"
     volumes:
@@ -93,6 +93,19 @@ services:
     networks:
       - local
 
+  ms-withdrawals:
+    container_name: ms-withdrawals
+    image: epayco:php-8.1
+    working_dir: /var/www/html
+    ports:
+      - "8090:80"
+    volumes:
+      - /home/jose/Proyectos/ePayco/ms-withdrawals/:/var/www/html
+    networks:
+      - local
+
 networks:
   local:
     name: local
+
+# docker compose up -d
